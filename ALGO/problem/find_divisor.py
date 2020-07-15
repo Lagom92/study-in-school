@@ -20,3 +20,21 @@ for i in range(1, N+1):
         res.append(i)
 
 print(*res)
+
+
+
+# 강사님 코드
+# 제곱근 만큼 만 for 루프를 돈다.
+num = int(input())
+sqrt_num = int(num ** 0.5)
+
+f = []
+r = []
+
+for i in range(1, sqrt_num + 1):
+    if num % i == 0:
+        f.append(i)
+        if i != int(num/i):
+            r.append(int(num/i))
+
+print(f + r[::-1])
