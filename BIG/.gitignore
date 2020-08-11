@@ -4,8 +4,8 @@
 
 
 ### my data directory ###
-./data/*
-data/*
+# ./data/*
+# data/*
 
 ### JupyterNotebooks ###
 # gitignore template for Jupyter Notebooks
