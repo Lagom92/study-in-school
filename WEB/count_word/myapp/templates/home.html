@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+
+</head>
+<body>
+    <div class='home_container'>
+        <h1>Home</h1>
+        
+        <a href="{% url 'board' %}">board</a>
+    </div>
+
+</body>
+</html>
