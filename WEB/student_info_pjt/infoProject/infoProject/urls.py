@@ -20,5 +20,7 @@ from infoApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.main, name='main'),
-    path('aiclass/', views.aiclass, name='aiclass')
+    path('aiclass/', views.aiclass, name='aiclass'),
+    path('detail/<int:id>/', views.detail, name='detail'),
+    path('add/<int:id>/', views.add, name='add'),
 ]

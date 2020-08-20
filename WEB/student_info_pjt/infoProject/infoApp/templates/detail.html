@@ -6,10 +6,13 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Detail</h1>
+    {% for student in students %}
+        {{student.name}}
+        {{student.introduce}}
+    {% endfor %}
 
-    <h1>Main</h1>
-
-    <a href="{% url 'aiclass' %}">광인사</a>
+    <a href="{% url 'add' id %}">학생 추가하기</a>
     
 </body>
 </html>
