@@ -12,9 +12,11 @@
     <br>
 
     {% for class in ai_class %}
-        {{class.number}}
-        {{class.teacher}}
-        <a href="{% url 'detail' class.id %}">Class Detail 보기</a>
+        <p>
+            {{class.number}} 반 |
+            {{class.teacher}} |
+            <a href="{% url 'detail' class.id %}">Class Detail 보기</a>
+        </p>
     {% endfor %}
 </body>
 </html>

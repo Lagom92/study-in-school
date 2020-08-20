@@ -14,7 +14,7 @@ def aiclass(request):
     return render(request, 'class.html', data)
 
 def detail(request, id):
-    students = AiStudent.objects.filter(id=id)
+    students = AiStudent.objects.filter(class_number=id)
     data = {
         'students': students,
         'id': id
@@ -24,6 +24,16 @@ def detail(request, id):
 
 def add(request, id):
 
-    # 나중에 추가
+    if request.method == 'POST':
+        res = request.POST
+
+        AiStudent.objects.create(
+            name = res['name'],
+            class_number = id,
+            introduce = res['introduce'],
+            github = res['github']
+        )
+        
+        return redirect('detail', id)
 
     return render(request, 'add.html')

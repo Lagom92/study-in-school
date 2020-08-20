@@ -7,9 +7,16 @@
 </head>
 <body>
     <h1>Detail</h1>
+    <a href="{% url 'main' %}">Home</a>
+    <br>
+    <br>
+    
     {% for student in students %}
-        {{student.name}}
-        {{student.introduce}}
+        <p>
+            {{student.name}}
+            {{student.introduce}}
+        </p>
+        
     {% endfor %}
 
     <a href="{% url 'add' id %}">학생 추가하기</a>
