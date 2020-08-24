@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Student</h1>
+    <a href="{% url 'main' %}">Home</a>
+    <a href="{% url 'aiclass' %}">Class</a>
+    <br>
+    <br>
+
+    <h2>name: {{student.name}}</h2>
+    <h2>class number: {{student.class_number}}</h2>
+    <h2>intro: {{student.introduce}}</h2>
+    <h2>github: {{student.github}}</h2>
+
+    <a href="{% url 'edit' student.id %}">수정하기</a>
+    <a href="{% url 'delete' student.class_number student.id %}">삭제하기</a>
+</body>
+</html>
