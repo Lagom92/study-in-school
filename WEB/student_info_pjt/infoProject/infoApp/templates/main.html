@@ -9,7 +9,12 @@
 
     <h1>Main</h1>
     <a href="{% url 'aiclass' %}">광인사</a>
-
-    
+    {% if user.is_authenticated%}
+    <p>{{ user.get_username }} 님 안녕하세요.</p>
+    <a href="{% url 'logout' %}">로그아웃</a>
+    {% else %}
+        <a href="{% url 'signup' %}">회원 가입</a>
+        <a href="{% url 'login' %}">로그인</a>
+    {% endif %}
 </body>
 </html>

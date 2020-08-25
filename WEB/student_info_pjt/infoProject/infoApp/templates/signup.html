@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>회원 가입</h1>
+    <a href="{% url 'main' %}">Home</a>
+    <br>
+    <br>
+    {% if error_state %}
+        <h3>{{error_msg}}</h3>
+    {% endif %}
+    
+    <div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="username_">ID: </label>
+            <input type="text" name="username" id="username_">
+            <br>
+            <label for="email_">Email: </label>
+            <input type="text" name="email" id="email_">
+            <br>
+            <label for="password_">PW: </label>
+            <input type="text" name="password" id="password_">
+            <br>
+            <label for="password_check_">PW: </label>
+            <input type="text" name="password_check" id="password_check_">
+            <br>
+            <br>
+            <br>
+            <button type="submit">가입하기</button>     
+        </form>
+    </div>
+</body>
+</html>
