@@ -16,7 +16,7 @@ def aiclass(request):
     return render(request, 'class.html', data)
 
 def detail(request, id):
-    students = AiStudent.objects.filter(class_number=id)
+    students = AiStudent.objects.filter(user=id)
     data = {
         'students': students,
         'id': id
@@ -85,41 +85,34 @@ def signup(request):
     }
 
     if request.method == 'POST':
-        username = request.POST['username']
-        email = request.POST['email']
+        userId = request.POST['userId']
         password = request.POST['password']
         password_check = request.POST['password_check']
 
-        user_name = User.objects.filter(username=username)
-        user_email = User.objects.filter(email=email)
+        #
+        username = request.POST['username']
+        username = request.POST['github']
+        username = request.POST['class_num']
 
-        if username and email and password and password_check:
-            if len(user_name) == 0:
-                if len(user_email) == 0:
-                    if password == password_check:
-                        user = User.objects.create_user(
-                            username=username,
-                            email=email,
-                            password=password
-                        )
+        user_id = User.objects.filter(user=userId)
 
-                        auth.login(request, user)
-
-                        return render(request, 'signup.html')
-
-                    else:
-                        # 비밀번호와 비밀번호 확인번호가 다름
-                        context['error_state'] = True
-                        context['error_msg'] = SIGNUP_ERROR_MSG['pw_check_diff']
+        if user_id and password and password_check:
+            if len(user_id) == 0:
+                if password == password_check:
+                    user = User.objects.create_user(
+                        user=user_id,
+                        password=password
+                    )
+                    auth.login(request, user)
+                    return render(request, 'signup.html')
                 else:
-                    # 이미 같은 email이 존재함
+                    # 비밀번호와 비밀번호 확인번호가 다름
                     context['error_state'] = True
-                    context['error_msg'] = SIGNUP_ERROR_MSG['email_duplication']
+                    context['error_msg'] = SIGNUP_ERROR_MSG['pw_check_diff']
             else:
                 # 이미 같은 username이 존재함
                 context['error_state'] = True
                 context['error_msg'] = SIGNUP_ERROR_MSG['username_duplication']
-
         else:
             # 내용을 입력하지 않음
             context['error_state'] = True

@@ -17,17 +17,28 @@
     <div>
         <form action="" method="POST">
             {% csrf_token %}
-            <label for="username_">ID: </label>
-            <input type="text" name="username" id="username_">
+            <label for="userId_">ID: </label>
+            <input type="text" name="userId" id="userId_">
             <br>
-            <label for="email_">Email: </label>
-            <input type="text" name="email" id="email_">
             <br>
             <label for="password_">PW: </label>
             <input type="text" name="password" id="password_">
             <br>
+            <br>
             <label for="password_check_">PW: </label>
             <input type="text" name="password_check" id="password_check_">
+            <br>
+            <br>
+            <label for="username_">NAME: </label>
+            <input type="text" name="username" id="username_">
+            <br>
+            <br>
+            <label for="github_">GITHUB: </label>
+            <input type="text" name="github" id="github_">
+            <br>
+            <br>
+            <label for="class_num_">Class Number: </label>
+            <input type="number" min="1" max="6" name="class_num" id="class_num_"/>
             <br>
             <br>
             <br>
